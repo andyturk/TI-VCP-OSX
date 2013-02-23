@@ -522,7 +522,7 @@ enqueueEvent(UInt32 event, UInt32 data, bool sleep, void *refCon)
     TIUMPPort *port = (TIUMPPort *) refCon;
     DLOG("enqueueEvent (write) %d\n", (event&PD_E_MASK)>>2);
 
-    if (port->ReadPortState() & PD_S_ACTIVE != 0) {
+    if ((port->ReadPortState() & PD_S_ACTIVE) != 0) {
         //	rtn = TX_enqueueEvent(port, event, data, sleep);
 
 #ifdef IntelTest
@@ -553,7 +553,7 @@ dequeueEvent(UInt32 *event, UInt32 *data, bool sleep, void *refCon)
     if ((event == NULL) || (data == NULL) || (port == NULL))
         return kIOReturnBadArgument;
 
-    if (port->ReadPortState() & PD_S_ACTIVE !=0) {
+    if ((port->ReadPortState() & PD_S_ACTIVE) !=0) {
         //	rtn = RX_dequeueEvent(port, &e, data, sleep);
         //	*event = (UInt32)e;
         return kIOReturnSuccess;

@@ -1,0 +1,268 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf250
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Geneva;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww22460\viewh16960\viewkind0
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\qc
+
+\f0\fs38 \cf0 OSX USB-Serial device driver for 3410 and 5052 chipsets
+\fs24 \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+\cf0 \
+This documentation describes content of package, installation and parametrization of TIVCPSerial driver for MacOSX version 10.4 and higher for PPC 32-bit,10.4.4 and higher for Intel 32-bit platform and 10.6 and higher for Intel 64-bit platform.\
+\
+
+\fs28 Package
+\fs24 \
+\
+Package which describes this documentation should contain:\
+\
+- 
+\b project file
+\b0  - TIUMPSerial.xcodeproj - project file for XCode IDE version 3.1 and higher. To build for Intel 64-bit platform as well you need to use Xcode IDE version 3.2 and higher which run on Mac OS X 10.6\
+\
+- 
+\b dumpbinsh folder 
+\b0 - contains script for converting Firmware images (residing in folder FWImages) to compilable source code\
+\
+- 
+\b FWImages folder
+\b0  - contains actual Firmware images in *.i51 format. Because of limitation of kernel extension (driver) architecture on MacOSX, firmware must be staticaly compiled into KEXT binary. For recompilation convenience, it is sufficient just to copy new FW images to this folder and recompile driver by opening TIUMPSerial.xcodeproj project in XCode.\
+\
+- 
+\b build folder
+\b0  - contains resulting kernel extension/driver (TIVCPSerial.kext) - the TIVCPSerial.kext is actually package folder, so it has folder like hierarchical structure. Make sure you are manipulating with the whole structure.\
+\
+- 
+\b SerialPortSample
+\b0   - contain source files for testing application - it is adjusted code from Apple Sample Codes - adapted to enumerate correctly all serial drivers and use /dev/cu.TIVCP3410 device for communication. If you change port name, or you want to test it on 5052 chipset, please change source code appropriately before testing.\
+\
+- 
+\b all other folders
+\b0  contain source files important to rebuild the driver\
+\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\fs30 \cf0 Rebuilding the driver\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\fs24 \cf0 \
+For rebuilding the driver you must have at least XCode version 3.1 (run on Mac OS X 10.5) and higher installed on your computer for building 32-bit, but for rebuilding full universal binary with 64-bit Intel version for Snow Leopard, you need to use Xcode version 3.2 and higher (run on Mac OS X 10.6) and build on Mac OS X 10.6!\
+\
+Rebuilding itself can be done by double clicking on TIUMPSerial.xcodeproj project file and rebuild the .kext file. Build process will automatically incorporate both i51 firmware images found in FWImages subfolder.\
+\
+Resulting driver can be found in build/TIVCPSerial.kext\
+\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\fs30 \cf0 Installation
+\fs24 \
+\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b \cf0 1)
+\b0  
+\b Copy TIVCPSerial.kext
+\b0  extension into /System/Library/Extensions folder\
+	\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 	cd build/<Release|Debug>\
+	sudo cp -R TIVCPSerial.kext /System/Library/Extensions\
+	sudo touch /System/Library/Extensions\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+
+\b 2)
+\b0  
+\b Set kext owner to root
+\b0  - it is kext system specification - without it, kext is not recognized by system\
+	\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 	sudo chown -R root:wheel /System/Library/Extensions/TIVCPSerial.kext \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+
+\b 3)
+\b0  
+\b Set kext privileges to 755
+\b0  - it is kext system specification - without it, kext is not recognized by system\
+	\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 	sudo chmod -R 755 /System/Library/Extensions/TIVCPSerial.kext \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+\
+
+\b 4)
+\b0  
+\b Rebuild internal system kext cache (on Mac OS X 10.4 only)
+\b0 \
+	\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 	kextcache -e\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+
+\b 5)
+\b0  
+\b Reboot computer
+\b0 \
+\
+After the last step the connected USB-Serial devices should be recognized and driver loaded appropriately, when connected to USB port.\
+\
+
+\fs28 Parametrization
+\fs24 \
+\
+
+\b - Change of FW image
+\b0  - for changing the FW image, please put new images to FWImages folder, open TIUMPSerial.xcodeproj project to Apple IDE and recompile TIVCPSerial.kext driver package/folder. The driver MUST be recompiled each time you change Firmware images. It is the limitation of kernel architecture on MacOSX\
+\
+
+\b - Change USB parameters
+\b0  - all changeable parameters for USB infos and port names can be found in Info.plist file stored as TIVCPSerial.kext/Contents/Info.plist, inside of TIUMSerial.kext package. It is XML file editable using regular text editor or using Property List Editor (part of Apple development tools). The part you need to change is stored under IOKitPersonalities dictionary tag in this XML file.\
+All parameters are encoded as key-value pairs - hopefully self explainable\
+\
+Here is the explanation for the parameters, its types and function (taken from Info.plist itself):\
+\
+		\
+		- generic name for section (type of USB info)\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 		<key>TIVCP3410</key> \
+		<dict>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 			- system bundle identifier - should not be changed\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>CFBundleIdentifier</key>\
+			<string>com.ti.driver.TIVCPSerial</string>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0  \
+			- class name - MUST NOT be changed!!!!\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1 \cf0 			<key>IOClass</key>\
+			<string>TIUMPSerial</string>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0 \cf0 \
+			- class provider - MUST NOT be changed!!!!\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>IOProviderClass</key>\
+			<string>IOUSBDevice</string> \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+			- base name for POSIX name of device and also displayable string for user - named port listed in port selection UI\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>IOTTYBaseName</key>\
+			<string>TIVCP3410</string>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+			- chipset type - MUST be set to either 3410 or 5052\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>TIUMPChipset</key>\
+			<string>3410</string>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+			For correct device discovery and driver matching, the USB triplet info should be set - bcdDevice, Product ID and VendorID. This triplet is described by Apple as minimal recognition info. Please remember if you don't specify all three items - driver may not be matched with your device\
+			- bcdDevice (or device version) o USB device itself\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>bcdDevice</key>\
+			<integer>276</integer>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+			- product id of USB device itself (in decimal)\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>idProduct</key>\
+			<integer>13328</integer>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 \
+			- vendor id of USB device itself (in decimal)\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1\fs22 \cf0 			<key>idVendor</key>\
+			<integer>1105</integer>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0\fs24 \cf0 		</dict>\
+\
+Here is the explanation for setting the "merge" device which controls display of "New Network Interface dialog on 10.6 (taken from Info.plist itself):\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f1 \cf0 \
+		<key>TIVCP3410Merge</key>\
+		<dict>\
+			<key>CFBundleIdentifier</key>\
+			<string>com.apple.driver.AppleUSBMergeNub</string>\
+			<key>IOClass</key>\
+			<string>AppleUSBMergeNub</string>\
+			<key>IOProviderClass</key>\
+			<string>IOUSBDevice</string>\
+			<key>IOProviderMergeProperties</key>\
+			<dict>\
+				\
+				- 
+\f0 Here if you want to show the dialog put "Prompt" otherwise "None"
+\f1 \
+				<key>New Interface Detected Action</key>\
+				<string>None</string>\
+			</dict>\
+			- Please change the idProduct and idVendor accordingly to your USB device.\
+			<key>idProduct</key>\
+			<integer>13328</integer>\
+			<key>idVendor</key>\
+			<integer>1105</integer>\
+		</dict>\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\f0 \cf0 \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\fs32 \cf0 Testing\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\fs24 \cf0 \
+For testing the driver you can use either included source code for explaining how to write and manipulate serial communication client, or you can use third party communication applications such as ZTerm shareware by David P. Alverson:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2 \cf0 http://homepage.mac.com/dalverson/zterm/\
+\
+Or goSerial by Andreas Mayer (furrysoft):\
+\
+http://www.furrysoft.de/?page=goserial\
+\
+Or Zoc6 by Marcus Schmidt (emtec):\
+\
+http://www.emtec.com\
+\
+Also driver writes some internal information - helps for debugging to system.log file. You can view dynamically this file by using /Application/Utilities/Console.app application or by using terminal when using this command:\
+\
+		
+\f1\fs22 tail -f /var/log/system.log\
+\
+
+\f2\fs24 it displays dynamically the last couple of lines from current content of system.log where driver writes all debugging information into.
+\f1\fs22 \
+}

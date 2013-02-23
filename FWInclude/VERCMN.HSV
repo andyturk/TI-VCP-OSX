@@ -1,0 +1,132 @@
+/******************************************************************************/
+/*                                                                            */
+/*             Copyright (c) 1998,1999 by RealChip Inc.                       */
+/*                                                                            */
+/*  All rights are reserved.  Reproduction in whole or in part is prohibited  */
+/*  without the written consent of the copyright owner.                       */
+/*                                                                            */
+/*  RealChip Inc. reserves the right to make changes without notice  at  any  */
+/*  time. RealChip Inc. makes no warranty, expressed, implied  or  statutory, */
+/*  including but not limited to any implied warranty  of  merchantability of */
+/*  fitness for any particular purpose, or that the use will not infringe any */
+/*  third party patent, copyright or trademark. RealChip Inc. must not be     */
+/*  liable for any loss or damage arising from its use.                       */
+/*                                                                            */
+/*  This Copyright notice may not be removed or modified without prior        */
+/*  written consent of RealChip Inc.                                          */
+/*                                                                            */
+/******************************************************************************/
+/******************************************************************************
+                                                                          
+    Filename:    VerCmn.h
+
+    Description:
+        Common version resource definitions
+
+    Modification History:
+
+    Date         By       Description
+    -----------  -----    --------------------------------------------
+    Jun-19-1999  AG       Created
+
+*******************************************************************************/
+
+#ifndef _VERCMN_H_
+#define _VERCMN_H_
+
+/* ******************************** */
+/*
+ * The build procedure must define exactly one of:
+ *	UMP_PRODUCT_3410
+ *	UMP_PRODUCT_5052
+ *	UMP_PRODUCT_5152
+ *
+ * This switch determines whether the code and comments in UMPUSB.SYS include
+ * support for the IEEE1284 parallel port on the TUSB5152 chip (which is not
+ * present on the TUSB5052 or TUSB3410 chip).  The version resource for the
+ * file is also set accordingly, although UMPMON.DLL does not have any other
+ * differences.
+ *
+ */
+
+#ifndef UMP_XP_DRIVER
+#ifndef UMP_PRODUCT_GENERIC
+#if !defined(UMP_PRODUCT_3410) && !defined(UMP_PRODUCT_5052) && !defined(UMP_PRODUCT_5152)
+#error ======== NO UMP_PRODUCT_XXXX SYMBOL DEFINED ========
+#endif
+#endif
+
+#if defined(UMP_PRODUCT_3410) && defined(UMP_PRODUCT_5052)
+#error ======== MULTIPLE UMP_PRODUCT_XXXX SYMBOLS DEFINED ========
+#elif defined(UMP_PRODUCT_3410) && defined(UMP_PRODUCT_5152)
+#error ======== MULTIPLE UMP_PRODUCT_XXXX SYMBOLS DEFINED ========
+#elif defined(UMP_PRODUCT_5052) && defined(UMP_PRODUCT_5152)
+#error ======== MULTIPLE UMP_PRODUCT_XXXX SYMBOLS DEFINED ========
+#endif
+#endif
+
+#ifdef UMP_PRODUCT_5152
+#define UMP_INCLUDE_IEEE1284
+#define UMP_INCLUDE_UART2
+#define VER_PRODUCTNAME_STR         "Texas Instruments UMP Device (TUSB5152)\0"
+#endif // UMP_PRODUCT_5152
+
+#ifdef UMP_PRODUCT_5052
+#define UMP_INCLUDE_UART2
+#define VER_PRODUCTNAME_STR         "Texas Instruments UMP Device (TUSB5052)\0"
+#endif // UMP_PRODUCT_5052
+
+#ifdef UMP_PRODUCT_3410
+#define VER_PRODUCTNAME_STR         "Texas Instruments UMP Device (TUSB3410)\0"
+#endif // UMP_PRODUCT_3410
+
+#ifndef VER_PRODUCTNAME_STR  
+#define VER_PRODUCTNAME_STR "Texas Instruments UMP Device\0"
+#endif
+
+// PJG: multiple chipset product name string for w2k/xp driver.
+#ifdef UMP_XP_DRIVER
+#undef VER_PRODUCTNAME_STR
+#undef UMP_INCLUDE_IEEE1284
+#undef UMP_INCLUDE_UART2
+
+#define UMP_INCLUDE_IEEE1284			// Force everything to be built for XP driver.
+#define UMP_INCLUDE_UART2
+#define VER_PRODUCTNAME_STR         "Texas Instruments UMP Device (TUSB5052, TUSB3410)\0"
+#endif
+
+#ifdef UMP_PRODUCT_GENERIC
+#undef VER_PRODUCTNAME_STR
+#define VER_PRODUCTNAME_STR         "Texas Instruments UMP Device Driver\0"
+#endif
+
+
+#define RESET_BOTH_ENDPOINTS
+// #define MGR_PERIODIC_CHECK_RXDEAD
+/* ******************************** */
+/*
+#ifdef RESET_BOTH_ENDPOINTS
+#define VER_PRODUCTVERSION_STR      "1.0.022RBE\0"
+#else  // !RESET_BOTH_ENDPOINTS
+#define VER_PRODUCTVERSION_STR      "1.0.022\0"
+#endif // !RESET_BOTH_ENDPOINTS
+*/
+
+
+#ifdef UMP_XP_DRIVER
+#define VER_LEGALCOPYRIGHT_STR      "Copyright © Texas Instruments, 1999-2002\0"
+#define VER_PRODUCTVERSION_STR     "1.0.1.1\0"
+#define VER_PRODUCTVERSION          1,0,1,1
+#else
+#define VER_LEGALCOPYRIGHT_STR      "Copyright © RealChip, 1999-2000\0"
+#define VER_PRODUCTVERSION_STR      "1.2.0.0\0"
+#define VER_PRODUCTVERSION          1,2,0,0
+#endif
+
+#define VER_COMPANYNAME_STR         "Texas Instruments\0"
+#define VER_LEGALTRADEMARKS_STR     "\0"
+#define VER_BUILDDATE_STR			__DATE__ /* used in debug build only */
+#define VER_BUILDTIME_STR			__TIME__ /* used in debug build only */
+
+#endif /* _VERCMN_H_ */
+

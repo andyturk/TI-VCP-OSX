@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXApplicationTarget section */
+		20286C34FDCF999611CA2CEA /* SerialPortSample */ = {
+			isa = PBXApplicationTarget;
+			buildConfigurationList = 521458E30CC0B14700C1D3BD /* Build configuration list for PBXApplicationTarget "SerialPortSample" */;
+			buildPhases = (
+				20286C35FDCF999611CA2CEA /* Headers */,
+				20286C36FDCF999611CA2CEA /* Resources */,
+				20286C38FDCF999611CA2CEA /* Sources */,
+				20286C3BFDCF999611CA2CEA /* Frameworks */,
+				04313892FE3035C9C02AAC07 /* Rez */,
+			);
+			dependencies = (
+			);
+			name = SerialPortSample;
+			productInstallPath = "$(HOME)/Applications";
+			productName = SerialPortSample;
+			productReference = 010C18FDFFF017FA7F000001 /* SerialPortSample.app */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>SerialPortSample</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.3.0</string>
+</dict>
+</plist>
+";
+		};
+/* End PBXApplicationTarget section */
+
+/* Begin PBXBuildFile section */
+		017DE75AFFF01CB97F000001 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017DE759FFF01CB97F000001 /* CoreFoundation.framework */; };
+		11716A97FF3A014511CB154D /* SerialPortSample.c in Sources */ = {isa = PBXBuildFile; fileRef = 11716A95FF3A014511CB154D /* SerialPortSample.c */; settings = {ATTRIBUTES = (); }; };
+		11716A98FF3A014511CB154D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11716A96FF3A014511CB154D /* IOKit.framework */; };
+		132C2078035DFADD06CB154D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 132C2076035DFADD06CB154D /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		010C18FDFFF017FA7F000001 /* SerialPortSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = SerialPortSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		017DE759FFF01CB97F000001 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		11716A95FF3A014511CB154D /* SerialPortSample.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = SerialPortSample.c; sourceTree = "<group>"; };
+		11716A96FF3A014511CB154D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		132C2077035DFADD06CB154D /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20286C3BFDCF999611CA2CEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11716A98FF3A014511CB154D /* IOKit.framework in Frameworks */,
+				017DE75AFFF01CB97F000001 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		132C2075035DFAC406CB154D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				132C2076035DFADD06CB154D /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		195DF8C9FE9D4F0611CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				010C18FDFFF017FA7F000001 /* SerialPortSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* CarbonApp */ = {
+			isa = PBXGroup;
+			children = (
+				20286C2AFDCF999611CA2CEA /* Sources */,
+				132C2075035DFAC406CB154D /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8C9FE9D4F0611CA2CBB /* Products */,
+			);
+			name = CarbonApp;
+			sourceTree = "<group>";
+		};
+		20286C2AFDCF999611CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				11716A95FF3A014511CB154D /* SerialPortSample.c */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				017DE759FFF01CB97F000001 /* CoreFoundation.framework */,
+				11716A96FF3A014511CB154D /* IOKit.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		20286C35FDCF999611CA2CEA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 521458E70CC0B14700C1D3BD /* Build configuration list for PBXProject "SerialPortSample" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 20286C29FDCF999611CA2CEA /* CarbonApp */;
+			projectDirPath = "";
+			targets = (
+				20286C34FDCF999611CA2CEA /* SerialPortSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20286C36FDCF999611CA2CEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				132C2078035DFADD06CB154D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		04313892FE3035C9C02AAC07 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20286C38FDCF999611CA2CEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11716A97FF3A014511CB154D /* SerialPortSample.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		132C2076035DFADD06CB154D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				132C2077035DFADD06CB154D /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		521458E40CC0B14700C1D3BD /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "";
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = SerialPortSample;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		521458E50CC0B14700C1D3BD /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = SerialPortSample;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		521458E60CC0B14700C1D3BD /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = SerialPortSample;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		521458E80CC0B14700C1D3BD /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		521458E90CC0B14700C1D3BD /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		521458EA0CC0B14700C1D3BD /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		521458E30CC0B14700C1D3BD /* Build configuration list for PBXApplicationTarget "SerialPortSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521458E40CC0B14700C1D3BD /* Development */,
+				521458E50CC0B14700C1D3BD /* Deployment */,
+				521458E60CC0B14700C1D3BD /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		521458E70CC0B14700C1D3BD /* Build configuration list for PBXProject "SerialPortSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521458E80CC0B14700C1D3BD /* Development */,
+				521458E90CC0B14700C1D3BD /* Deployment */,
+				521458EA0CC0B14700C1D3BD /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

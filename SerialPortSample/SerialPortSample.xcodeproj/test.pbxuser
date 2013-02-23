@@ -1,0 +1,184 @@
+// !$*UTF8*$!
+{
+	11716A95FF3A014511CB154D /* SerialPortSample.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1994, 8330}}";
+			sepNavSelRange = "{20317, 0}";
+			sepNavVisRect = "{{0, 6784}, {1150, 636}}";
+			sepNavWindowFrame = "{{456, -109}, {1189, 765}}";
+		};
+	};
+	20286C28FDCF999611CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeExecutable = 521458DB0CC0B12800C1D3BD /* SerialPortSample */;
+		activeTarget = 20286C34FDCF999611CA2CEA /* SerialPortSample */;
+		breakpoints = (
+			521458F10CC0B1C100C1D3BD /* SerialPortSample.c:567 */,
+			52FB94560CCBF9E3009760B1 /* SerialPortSample.c:513 */,
+		);
+		breakpointsGroup = 521459140CC0B30800C1D3BD /* XCBreakpointsBucket */;
+		codeSenseManager = 521458EC0CC0B14700C1D3BD /* Code sense */;
+		executables = (
+			521458DB0CC0B12800C1D3BD /* SerialPortSample */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					210,
+					20,
+					110,
+					109,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 224870561;
+			PBXWorkspaceStateSaveDate = 224870561;
+		};
+		perUserProjectItems = {
+			52A17AC70D6740AD008E41A2 /* PBXTextBookmark */ = 52A17AC70D6740AD008E41A2 /* PBXTextBookmark */;
+			52F036430CD4C786009B5CB5 /* PBXTextBookmark */ = 52F036430CD4C786009B5CB5 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 521458EB0CC0B14700C1D3BD /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	20286C34FDCF999611CA2CEA /* SerialPortSample */ = {
+		activeExec = 0;
+		executables = (
+			521458DB0CC0B12800C1D3BD /* SerialPortSample */,
+		);
+	};
+	521458DB0CC0B12800C1D3BD /* SerialPortSample */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = SerialPortSample;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	521458EB0CC0B14700C1D3BD /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	521458EC0CC0B14700C1D3BD /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	521458F10CC0B1C100C1D3BD /* SerialPortSample.c:567 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 11716A95FF3A014511CB154D /* SerialPortSample.c */;
+		functionName = "main()";
+		hitCount = 1;
+		lineNumber = 567;
+		location = SerialPortSample;
+		modificationTime = 214694537.73491;
+		state = 2;
+	};
+	521459140CC0B30800C1D3BD /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = "Project Breakpoints";
+		objects = (
+			521458F10CC0B1C100C1D3BD /* SerialPortSample.c:567 */,
+			52FB94560CCBF9E3009760B1 /* SerialPortSample.c:513 */,
+		);
+	};
+	52A17AC70D6740AD008E41A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 11716A95FF3A014511CB154D /* SerialPortSample.c */;
+		name = "SerialPortSample.c: 515";
+		rLen = 0;
+		rLoc = 20317;
+		rType = 0;
+		vrLen = 1335;
+		vrLoc = 19397;
+	};
+	52F036430CD4C786009B5CB5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 11716A95FF3A014511CB154D /* SerialPortSample.c */;
+		name = "SerialPortSample.c: 515";
+		rLen = 0;
+		rLoc = 20317;
+		rType = 0;
+		vrLen = 1335;
+		vrLoc = 19397;
+	};
+	52FB94560CCBF9E3009760B1 /* SerialPortSample.c:513 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 11716A95FF3A014511CB154D /* SerialPortSample.c */;
+		functionName = "InitializeModem()";
+		hitCount = 3;
+		lineNumber = 513;
+		location = SerialPortSample;
+		modificationTime = 214694604.008162;
+		state = 1;
+	};
+}

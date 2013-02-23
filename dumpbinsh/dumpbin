@@ -1,0 +1,3 @@
+hexdump -v -f dump.fmt ../FWimages/umpf3410.i51 | sed 's/0x\ \ ,//g' > ../FWInclude/firmware3410.inc
+hexdump -v -f dump.fmt ../FWimages/umpf5052.i51 | sed 's/0x\ \ ,//g' > ../FWInclude/firmware5052.inc
+

@@ -24,6 +24,25 @@
 	<string>1.2.1</string>
 	<key>IOKitPersonalities</key>
 	<dict>
+        <key>MSP-FET430UIF</key>
+        <dict>
+            <key>CFBundleIdentifier</key>
+            <string>com.ti.driver.TIVCPSerial</string>
+            <key>IOClass</key>
+            <string>TIUMPSerial</string>
+            <key>IOProviderClass</key>
+            <string>IOUSBDevice</string>
+            <key>IOTTYBaseName</key>
+            <string>MSP-FET430UIF</string>
+            <key>TIUMPChipset</key>
+            <string>3410</string>
+            <key>bcdDevice</key>
+            <integer>257</integer>
+            <key>idProduct</key>
+            <integer>62512</integer>
+            <key>idVendor</key>
+            <integer>1105</integer>
+        </dict>
 		<key>TIVCP3410</key>
 		<dict>
 			<key>CFBundleIdentifier</key>

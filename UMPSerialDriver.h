@@ -77,7 +77,7 @@ typedef UInt32			CalloutTime;
 #define    kX32UserClockMode	0x19
 #define    kX64UserClockMode	0x32
 
-#include <IOKit/ppc/IODBDMA.h>
+// #include <IOKit/ppc/IODBDMA.h>
 
 /*
  *It is possible to improve the total behavior of the driver changing the
